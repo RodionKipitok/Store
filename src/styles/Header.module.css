@@ -1,0 +1,75 @@
+.header {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 25px 20px;
+}
+
+.logo {
+   width: 304px;
+}
+
+.avatar {
+   width: 36px;
+   height: 36px;
+   border-radius: 50%;
+   background: var(--dark);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+}
+
+.username {
+   padding-left: 10px;
+   font-size: 10px;
+   line-height: 12px;
+   color: var(--grey);
+}
+
+.info {
+   display: flex;
+   align-items: center;
+}
+.user {
+   display: flex;
+   align-items: center;
+   column-gap: 10px;
+   cursor: pointer;
+}
+.icon {
+   width: 16px;
+   height: 16px;
+   fill: var(--grey);
+}
+
+.form {
+   display: flex;
+   align-items: center;
+   background: var(--dark);
+   border-radius: 6px;
+   height: 27px;
+   padding: 7px 10px;
+   column-gap: 16px;
+   width: 300px;
+   position: relative;
+   border: 1px solid;
+}
+
+.icon svg {
+   width: 100%;
+   height: 100%;
+   fill: var(--dark-sea);
+}
+
+.icon-cart {
+   width: 24px;
+   height: 24px;
+   fill: var(--grey);
+}
+
+.icon-fav {
+   width: 24px;
+   height: 24px;
+   fill: var(--grey);
+}
