@@ -10,7 +10,6 @@ console.log(styles);
 const Header = () => {
    return (
       <div className={styles.header}>
-
          <div className={styles.logo}>
             <Link to={ROUTES.HOME}>
                <img src={LOGO} alt="stuff" />
@@ -18,7 +17,9 @@ const Header = () => {
          </div>
 
          <div className={styles.info}>
-            <div className={styles.avatar}></div>
+            <div className={styles.avatar}>
+               <img src={AVATAR} alt="" srcset="" />
+            </div>
             <div className={styles.username}>Anstoli MKSwkdsdgf</div>
          </div>
 
