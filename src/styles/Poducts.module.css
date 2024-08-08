@@ -1,0 +1,20 @@
+.product_wrapper {
+}
+
+.trending_wrapper {
+}
+.trending_list {
+   display: flex;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+.trending_list_item:not(:last-child) {
+   margin-left: 20px;
+}
+
+.trending_list_item {
+   outline: 1px solid red;
+   height: 230px;
+   width: 220px;
+}

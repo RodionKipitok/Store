@@ -7,14 +7,16 @@ const Poster = () => {
             <span className={styles.sale}>BIG SALE 20%</span>
          </div>
          <div>
-            <span className={styles.text_bestseller}>the bestseller of 2022  </span>
+            <span className={styles.text_bestseller}>
+               the bestseller of 2022{' '}
+            </span>
          </div>
          <div>
-            <h1 >LENNON r2d2 with NVIDIA 5090 TI</h1>
+            <h1>LENNON r2d2 with NVIDIA 5090 TI</h1>
          </div>
-         <button></button>
+         <button className={styles.btn_show_now}>Shop Now</button>
          <div className={styles.poster_img_computer}>
-            <img src={BG} alt="" srcset="" />
+            <img src={BG} alt="" />
          </div>
       </section>
    );

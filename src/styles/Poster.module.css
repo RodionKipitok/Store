@@ -14,12 +14,21 @@
 .text_bestseller {
    font-size: 16px;
    text-transform: uppercase;
+   padding-left: 35px;
 }
 
 .poster h1 {
    text-transform: uppercase;
    font-size: 42px;
-   text-wrap: wrap;
+   line-height: 51.2px;
+   width: 491px;
+   height: 93px;
+   padding-left: 35px;
+}
+
+.btn_show_now {
+   margin-top: 33px;
+   margin-left: 35px;
 }
 
 .poster_img_computer {

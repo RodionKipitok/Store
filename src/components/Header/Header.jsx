@@ -5,7 +5,6 @@ import styles from '../../styles/Header.module.css';
 
 import AVATAR from '../../images/avatar.jpg';
 import LOGO from '../../images/logo.svg';
-console.log(styles);
 
 const Header = () => {
    return (
@@ -18,11 +17,11 @@ const Header = () => {
 
          <div className={styles.info}>
             <div className={styles.avatar}>
-               <img src={AVATAR} alt="" srcset="" />
+               <img src={AVATAR} alt="avatar" />
             </div>
             <div className={styles.username}>Anstoli MKSwkdsdgf</div>
          </div>
-
+          
          <form className={styles.form}>
             <div>
                <svg className={styles.icon}>
