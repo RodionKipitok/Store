@@ -11,9 +11,11 @@ const Sidebar = () => {
          <h3 className={styles.title}>CATEGORIES</h3>
          <nav>
             <ul className={styles.list}>
-               {categories.map(({ id, name }) => (
-                  <li className={styles.list_item} key={id}>
-                     <NavLink to={`/categories${id}`}>{name}</NavLink>
+               {categories.map(item => (
+                  <li className={styles.list_item} key={item}>
+                     <NavLink to={`/categories${item}`}>
+                        {item.toLowerCase()}
+                     </NavLink>
                   </li>
                ))}
             </ul>

@@ -1,17 +1,60 @@
 .product_card {
-   width: 350px;
 }
 
-.product_card_text {
+.wrapper_img {
+   background-color: #fff;
+   border-radius: 6px 6px 0 0;
+   position: relative;
+}
+
+.card_title {
+   font-size: 15px;
+   font-weight: 600;
+   line-height: 18.29px;
+   padding-top: 12px;
+   padding-left: 12px;
+   width: 288px;
 }
 
 .img_card {
    width: 230px;
    height: 110px;
+   object-fit: contain;
+}
+.wrapper_cost {
+   display: flex;
+   align-items: center;
+   padding-top: 20px;
 }
 
-.img_card img {
+.price {
+   position: relative;
+   font-size: 15px;
+   font-weight: 500;
+   line-height: 15.5px;
+   margin-left: 12px;
+   color: #576067;
+}
+.price::after {
+   position: absolute;
+   bottom: 7px;
+   left: 0;
+   display: inline-block;
+   content: '';
    width: 100%;
-   height: 100%;
-   object-fit: cover;
+   height: 2px;
+   background-color: #576067;
+   border-radius: 2px;
+}
+
+.discount {
+   font-size: 20px;
+   color: var(--violet-dark);
+   padding-left: 3px;
+}
+
+.counter_watch_people {
+   font-size: 10px;
+   margin-left: 12px;
+   padding-top: 3px;
 }
