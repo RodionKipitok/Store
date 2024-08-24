@@ -1,24 +1,15 @@
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ProductsCard from './ProductCard';
-import styles from '../../styles/Poducts.module.css';
-import { useState } from 'react';
+import ProductsCard from '../UI/ProducrtCard/ProductCard';
+import styles from '../Products/Poducts.module.css';
 
-const Products = () => {
-   const dataTrending = useSelector(state => state.products.list);
-   const [showMoreTrending, setShowMoreTrending] = useState(5);
-   console.log(dataTrending)
-
-   const showMore = () => {
-      setShowMoreTrending(prev => prev + 6);
-   };
-
+const Products = ({ products = [], title, amount }) => {
+   const list = products.filter((_, i) => i < amount);
    return (
-      <section>
-         <h2 className={styles.products_title}>Trending</h2>
+      <section className={styles.Product}>
+         <h2 className={styles.products_title}>{title}</h2>
          <div className={styles.trending_wrapper}>
             <ul className={styles.trending_list}>
-               {dataTrending.slice(0,showMoreTrending).map(trend => (
+               {list.map(trend => (
                   <li className={styles.trending_list_item} key={trend.id}>
                      <Link className={styles.product_wrapper}>
                         <ProductsCard data={trend} />
@@ -27,7 +18,6 @@ const Products = () => {
                ))}
             </ul>
          </div>
-         <button onClick={showMore} className={styles.show_more}>Show more</button>
       </section>
    );
 };

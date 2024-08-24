@@ -1,7 +1,7 @@
-import styles from '../../styles/Product-card.module.css';
+import styles from '../ProducrtCard/Product-card.module.css';
 
 const ProductsCard = ({ data }) => {
-   const { category, description, id, image, price, rating, title } = data;
+   const { category, image, price } = data;
    const discount = price - price * 0.09;
    return (
       <article className={styles.product_card}>
@@ -9,13 +9,12 @@ const ProductsCard = ({ data }) => {
             <img className={styles.img_card} src={image} alt={category} />
          </div>
          <h3 className={styles.card_title}>{category}</h3>
-         
+
          <div className={styles.wrapper_cost}>
             <p className={styles.price}>{price}</p>
             <p className={styles.discount}>{discount.toFixed(2)}</p>
          </div>
          <p className={styles.counter_watch_people}>19 people purchased</p>
-        
       </article>
    );
 };

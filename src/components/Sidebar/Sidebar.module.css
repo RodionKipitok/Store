@@ -16,6 +16,7 @@
 .list a {
    font-size: 14px;
    color: #576067;
+   text-transform: capitalize;
    transition: all 0.3s ease;
 }
 

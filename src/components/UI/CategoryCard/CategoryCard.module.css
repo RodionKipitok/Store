@@ -1,0 +1,17 @@
+.Categories_item {
+   width: calc(100% / 5);
+   overflow: hidden;
+   text-align: center;
+}
+
+.Categories_item h3 {
+   margin-top: 8pxu;
+}
+
+.Categories_image {
+   width: 100%;
+   height: 230px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}

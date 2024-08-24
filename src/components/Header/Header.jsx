@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { ROUTES } from '../../utils/routes';
-import styles from '../../styles/Header.module.css';
+import styles from '../Header/Header.module.css';
 
 import AVATAR from '../../images/avatar.jpg';
 import LOGO from '../../images/logo.svg';

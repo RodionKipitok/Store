@@ -1,5 +1,5 @@
 import BG from '../../images/computer.png';
-import styles from '../../styles/Poster.module.css';
+import styles from '../Poster/Poster.module.css';
 const Poster = () => {
    return (
       <section className={styles.poster}>
@@ -8,7 +8,7 @@ const Poster = () => {
          </div>
          <div>
             <span className={styles.text_bestseller}>
-               the bestseller of 2022{' '}
+               the bestseller of 2024{' '}
             </span>
          </div>
          <div>

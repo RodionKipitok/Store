@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import styles from '../../styles/Sidebar.module.css';
+import styles from '../Sidebar/Sidebar.module.css';
 
 const Sidebar = () => {
    const categories = useSelector(state => state.categories.list);
@@ -13,7 +13,7 @@ const Sidebar = () => {
             <ul className={styles.list}>
                {categories.map(item => (
                   <li className={styles.list_item} key={item}>
-                     <NavLink to={`/categories${item}`}>
+                     <NavLink onClick={() => {}} to={`/categories/${item}`}>
                         {item.toLowerCase()}
                      </NavLink>
                   </li>

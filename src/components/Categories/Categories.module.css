@@ -1,0 +1,11 @@
+.Categories_section {
+   width: 100%;
+   padding: 22px;
+}
+
+.Categories_list {
+   margin-top: 24px;
+   display: flex;
+   column-gap: 20px;
+   justify-content: space-around;
+}
