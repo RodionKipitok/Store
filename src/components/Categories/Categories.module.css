@@ -1,11 +1,19 @@
-.Categories_section {
+.Category_wrapper {
    width: 100%;
-   padding: 22px;
+   padding: 24px;
+   flex-grow: 1;
 }
 
-.Categories_list {
+.Category_list{
    margin-top: 24px;
    display: flex;
-   column-gap: 20px;
-   justify-content: space-around;
+   gap: 20px;
+   flex-wrap: wrap;
+}
+
+.Category_product{
+   background: var(--bg);
+   border-radius: 8px;
+   overflow: hidden;
+   width: calc(100% / 5 - 20px);
 }

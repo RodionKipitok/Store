@@ -14,7 +14,7 @@ const Home = () => {
    const { list, filtered } = products;
 
    const categories = useSelector(state => state.categories.list);
-   console.log(categories);
+   // console.log(categories);
    useEffect(() => {
       if (!list.length) {
          return;

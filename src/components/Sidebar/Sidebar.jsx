@@ -14,7 +14,7 @@ const Sidebar = () => {
                {categories.map(item => (
                   <li className={styles.list_item} key={item}>
                      <NavLink onClick={() => {}} to={`/categories/${item}`}>
-                        {item.toLowerCase()}
+                        {item}
                      </NavLink>
                   </li>
                ))}

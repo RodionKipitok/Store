@@ -1,21 +1,55 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { getCategoryProducts } from '../../redex/productSlise';
 
 import Filter from '../UI/Filter/Filter';
+import ProductsCard from '../UI/ProducrtCard/ProductCard';
 
-import styles from '../Products/Poducts.module.css';
+import styles from '../Categories/Categories.module.css';
 
 const Category = () => {
    const { id } = useParams();
+   const dispatch = useDispatch();
 
-   console.log(id);
+   const productsCategory = useSelector(state => state.products.list);
+   // console.log(productsCategory);
+
+   const filterValue = useSelector(state => state.products.filter);
+   // console.log(filterValue);
+
+   useEffect(() => {
+      if (!id) return;
+
+      dispatch(getCategoryProducts(id));
+   }, [id, dispatch]);
+
+   const filterProduct = productsCategory.filter(product => {
+      return Object.entries(filterValue).every(([key, value]) => {
+         if (value === '') return true;
+         const productValue = product[key] || '';
+
+         return productValue
+            .toString()
+            .toLowerCase()
+            .includes(value.toLowerCase());
+      });
+   });
+
+   console.log(filterProduct);
 
    return (
-      <section>
-         <h2 className={styles.products_title}>Category</h2>
+      <section className={styles.Category_wrapper}>
+         <h2 className={styles.products_title}>{id.toLocaleUpperCase()}</h2>
          <Filter />
 
-         <div className={styles.trending_wrapper}>
-            <ul className={styles.trending_list}></ul>
+         <div className={styles.Category_list}>
+            {filterProduct.map(category => (
+               <Link key={category.id} className={styles.Category_product}>
+                  <ProductsCard data={category} />
+               </Link>
+            ))}
          </div>
       </section>
    );

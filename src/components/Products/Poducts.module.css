@@ -23,8 +23,8 @@
 
 .trending_list_item {
    background-color: #212123;
-   width: 230px;
-   height: 220px;
+   /* width: 230px;
+   height: 220px; */
    border-radius: 0 0 6px 6px;
    box-shadow: 0px 2px 11px 2px rgba(144, 19, 254, 0.4),
       0px 4px 2px 0px rgba(144, 19, 254, 0.4);

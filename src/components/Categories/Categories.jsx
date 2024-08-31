@@ -12,14 +12,13 @@ const Categories = ({ products = [], title, amount }) => {
    const transformCategories = products.map((name, index) => {
       return { name, image: categoryImages[index] };
    });
-   console.log(transformCategories);
 
    return (
       <section className={styles.Categories_section}>
          <h2>{title}</h2>
          <div className={styles.Categories_list}>
             {transformCategories.map(category => (
-               <CategoryCard name={category.name} image={category.image} />
+               <CategoryCard name={category.name} image={category.image} key={category.name} />
             ))}
          </div>
       </section>

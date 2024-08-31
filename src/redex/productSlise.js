@@ -15,6 +15,22 @@ export const getProduct = createAsyncThunk(
    },
 );
 
+export const getCategoryProducts = createAsyncThunk(
+   'category/getCategory',
+   async (nameCategory, thunkAPI) => {
+      // console.log(nameCategory);
+      try {
+         const res = await axios(
+            `${BASE_URL}products/category/${nameCategory}`,
+         );
+         // console.log(res.date);
+         return res.data;
+      } catch (error) {
+         console.log(error);
+      }
+   },
+);
+
 const productsSlice = createSlice({
    name: 'products',
    initialState: {
@@ -22,10 +38,19 @@ const productsSlice = createSlice({
       filtered: [],
       related: [],
       isLoading: false,
+      filter: {
+         title: '',
+         price_min: '',
+         price_max: '',
+      },
    },
    reducers: {
       filterByPrice: (state, { payload }) => {
          state.filtered = state.list.filter(({ price }) => price < payload);
+      },
+
+      filterValueCategory: (state, { payload }) => {
+         state.filter = payload;
       },
    },
    extraReducers: builder => {
@@ -39,9 +64,19 @@ const productsSlice = createSlice({
       builder.addCase(getProduct.rejected, state => {
          state.isLoading = false;
       });
+      builder.addCase(getCategoryProducts.pending, state => {
+         state.isLoading = true;
+      });
+      builder.addCase(getCategoryProducts.fulfilled, (state, action) => {
+         state.list = action.payload;
+         state.isLoading = false;
+      });
+      builder.addCase(getCategoryProducts.rejected, state => {
+         state.isLoading = false;
+      });
    },
 });
 
-export const { filterByPrice } = productsSlice.actions;
+export const { filterByPrice, filterValueCategory } = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import styles from '../CategoryCard/CategoryCard.module.css';
 
 const CategoryCard = ({ name, image }) => {
-   console.log(name);
    return (
-      <Link className={styles.Categories_item} key={name}>
+      <Link className={styles.Categories_item} >
          <div
             className={styles.Categories_image}
             style={{
