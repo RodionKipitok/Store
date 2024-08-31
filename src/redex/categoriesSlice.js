@@ -9,7 +9,6 @@ export const getCategories = createAsyncThunk(
          const res = await axios(`${BASE_URL}products/categories`);
 
          return res.data;
-         console.log(res.data);
       } catch (error) {
          console.log(error);
       }
