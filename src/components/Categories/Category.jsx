@@ -17,7 +17,7 @@ const Category = () => {
    // console.log(productsCategory);
 
    const filterValue = useSelector(state => state.products.filter);
-   // console.log(filterValue);
+   console.log(filterValue);
 
    useEffect(() => {
       if (!id) return;
@@ -37,8 +37,7 @@ const Category = () => {
       });
    });
 
-   console.log(filterProduct);
-
+ 
    return (
       <section className={styles.Category_wrapper}>
          <h2 className={styles.products_title}>{id.toLocaleUpperCase()}</h2>
