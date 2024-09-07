@@ -14,10 +14,8 @@ const Category = () => {
    const dispatch = useDispatch();
 
    const productsCategory = useSelector(state => state.products.list);
-   // console.log(productsCategory);
-
    const filterValue = useSelector(state => state.products.filter);
-   console.log(filterValue);
+   const { title: titleProduct, price_min, price_max } = filterValue;
 
    useEffect(() => {
       if (!id) return;
@@ -26,18 +24,18 @@ const Category = () => {
    }, [id, dispatch]);
 
    const filterProduct = productsCategory.filter(product => {
-      return Object.entries(filterValue).every(([key, value]) => {
-         if (value === '') return true;
-         const productValue = product[key] || '';
 
-         return productValue
-            .toString()
-            .toLowerCase()
-            .includes(value.toLowerCase());
-      });
+      const nameMatch =
+         titleProduct.trim() === '' ||
+         product.title.toLowerCase().includes(titleProduct.toLowerCase());
+      const priceMatch =
+         (price_min === '' || product.price >= price_min) &&
+         (price_max === '' || product.price <= price_max);
+      
+
+      return nameMatch && priceMatch;
    });
 
- 
    return (
       <section className={styles.Category_wrapper}>
          <h2 className={styles.products_title}>{id.toLocaleUpperCase()}</h2>
