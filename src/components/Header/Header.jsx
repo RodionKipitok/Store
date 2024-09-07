@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { ROUTES } from '../../utils/routes';
 import styles from '../Header/Header.module.css';
@@ -7,6 +9,23 @@ import AVATAR from '../../images/avatar.jpg';
 import LOGO from '../../images/logo.svg';
 
 const Header = () => {
+   const productsList = useSelector(state => state.products.list);
+   const [searchQuery, setSearchValue] = useState('');
+
+   const handleChange = e => {
+      setSearchValue(e.target.value);
+   };
+
+   const searchProduct = productsList.filter(product => {
+      const productMatch =
+         searchQuery.trim() === '' ||
+         product.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+      return productMatch;
+   });
+
+   console.log(searchProduct);
+
    return (
       <div className={styles.header}>
          <div className={styles.logo}>
@@ -21,7 +40,7 @@ const Header = () => {
             </div>
             <div className={styles.username}>Anstoli MKSwkdsdgf</div>
          </div>
-          
+
          <form className={styles.form}>
             <div>
                <svg className={styles.icon}>
@@ -32,10 +51,12 @@ const Header = () => {
             </div>
             <div>
                <input
+                  value={searchQuery}
                   type="search"
                   name="search"
                   placeholder="Search for anything.."
                   autoComplete="off"
+                  onChange={handleChange}
                />
             </div>
          </form>

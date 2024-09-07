@@ -51,7 +51,7 @@ const Filter = () => {
             placeholder="max-price"
             value={values.price_max}
          />
-         <button type="submit">click</button>
+         {/* <button type="submit">click</button> */}
       </form>
    );
 };
