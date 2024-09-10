@@ -1,5 +1,5 @@
 import Header from '../Header/Header';
-import AppRoutes from '../Routes/AppRoutes';
+import AppRoutes from '../../Routes/AppRoutes';
 import Sidebar from '../Sidebar/Sidebar';
 
 import Footer from '../Footer/Footer';

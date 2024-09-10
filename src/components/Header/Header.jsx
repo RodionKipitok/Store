@@ -10,6 +10,7 @@ import LOGO from '../../images/logo.svg';
 
 const Header = () => {
    const productsList = useSelector(state => state.products.list);
+   console.log(productsList);
    const [searchQuery, setSearchValue] = useState('');
 
    const handleChange = e => {

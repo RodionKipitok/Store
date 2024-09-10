@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from '../Home/Home';
+import Home from '../pages/Home/Home';
 
-import SingleCategory from '../Categories/SingleCategory';
+import SingleCategory from '../components/Categories/SingleCategory';
 
-import { ROUTES } from '../../utils/routes';
+import { ROUTES } from '../utils/routes';
 
 const AppRoutes = () => {
    return (

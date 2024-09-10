@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 
 import { filterByPrice } from '../../redex/productSlise';
 
-import Poster from '../Poster/Poster';
-import Products from '../Products/Products';
-import Categories from '../Categories/Categories';
+import Poster from '..//../components/Poster/Poster';
+import Products from '..//../components/Products/Products';
+import Categories from '..//../components/Categories/Categories';
 const Home = () => {
    const dispatch = useDispatch();
 
