@@ -70,7 +70,7 @@ const Header = () => {
                   />
                </svg>
             </Link>
-            <Link>
+            <Link to="/cart">
                <svg className={styles['icon-cart']}>
                   <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
                </svg>

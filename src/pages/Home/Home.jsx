@@ -7,6 +7,9 @@ import { filterByPrice } from '../../redex/productSlise';
 import Poster from '..//../components/Poster/Poster';
 import Products from '..//../components/Products/Products';
 import Categories from '..//../components/Categories/Categories';
+
+
+
 const Home = () => {
    const dispatch = useDispatch();
 

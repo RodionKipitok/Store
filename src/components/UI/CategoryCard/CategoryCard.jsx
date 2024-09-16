@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import styles from '../CategoryCard/CategoryCard.module.css';
 
 const CategoryCard = ({ name, image }) => {
+   // const handlerClick = () => {};
+
    return (
-      <Link className={styles.Categories_item} >
+      <Link to={`/categories/${name}`} className={styles.Categories_item}>
          <div
             className={styles.Categories_image}
             style={{
