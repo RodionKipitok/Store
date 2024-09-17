@@ -5,7 +5,7 @@ const CategoryCard = ({ name, image }) => {
    // const handlerClick = () => {};
 
    return (
-      <Link to={`/categories/${name}`} className={styles.Categories_item}>
+      <Link className={styles.Categories_item}>
          <div
             className={styles.Categories_image}
             style={{

@@ -23,9 +23,3 @@ const Products = ({ products = [], title, amount }) => {
 };
 
 export default Products;
-
-{
-   /* <Link to={``} className={styles.product_wrapper}>
-                      
-                      </Link> */
-}

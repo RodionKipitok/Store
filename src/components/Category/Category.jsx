@@ -24,14 +24,12 @@ const Category = () => {
    }, [id, dispatch]);
 
    const filterProduct = productsCategory.filter(product => {
-
       const nameMatch =
          titleProduct.trim() === '' ||
          product.title.toLowerCase().includes(titleProduct.toLowerCase());
       const priceMatch =
          (price_min === '' || product.price >= price_min) &&
          (price_max === '' || product.price <= price_max);
-      
 
       return nameMatch && priceMatch;
    });
@@ -43,7 +41,11 @@ const Category = () => {
 
          <div className={styles.Category_list}>
             {filterProduct.map(category => (
-               <Link key={category.id} className={styles.Category_product}>
+               <Link
+                  to={`/products/${category.title}`}
+                  key={category.id}
+                  className={styles.Category_product}
+               >
                   <ProductsCard data={category} />
                </Link>
             ))}
