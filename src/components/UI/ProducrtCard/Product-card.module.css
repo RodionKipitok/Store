@@ -1,12 +1,12 @@
-.product_card {
-}
-
 .wrapper_img {
-   height: 280px;
+   height: 150px;
    background-position: center;
    background-repeat: no-repeat;
    background-size: contain;
    background-color: #fff;
+}
+
+.wrapper_pos_text {
 }
 
 .card_title {
@@ -15,7 +15,7 @@
    line-height: 18.29px;
    padding-top: 12px;
    padding-left: 12px;
-   width: 288px;
+   width: 150px;
 }
 
 .img_card {

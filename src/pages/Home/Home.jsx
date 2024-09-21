@@ -30,8 +30,8 @@ const Home = () => {
       <>
          <Poster />
          <Products products={list} amount={5} title="Trending" />
-         <Categories products={categories} amount={5} title="Worth seeing" />
-         <Products products={filtered} amount={5} title="Less than 100$" />
+         {/* <Categories products={categories} amount={5} title="Worth seeing" />
+         <Products products={filtered} amount={5} title="Less than 100$" /> */}
       </>
    );
 };

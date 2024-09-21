@@ -1,7 +1,7 @@
 import styles from '../ProducrtCard/Product-card.module.css';
 
 const ProductsCard = ({ data }) => {
-   const {image, price, title } = data;
+   const { image, price, title } = data;
    const discount = price - price * 0.09;
    return (
       <>
@@ -9,12 +9,16 @@ const ProductsCard = ({ data }) => {
             className={styles.wrapper_img}
             style={{ backgroundImage: `url(${image})` }}
          ></div>
-         <h3 className={styles.card_title}>{title}</h3>
+         <div  className={styles.wrapper_pos_text}>
+            <h3 className={styles.card_title}>{title}</h3>
 
-         <div className={styles.wrapper_cost}>
-            <p className={styles.price}>{price}</p>
-            <p className={styles.discount}>{discount.toFixed(2)}</p>
-            <p className={styles.counter_watch_people}>19 people purchased</p>
+            <div className={styles.wrapper_cost}>
+               <p className={styles.price}>{price}</p>
+               <p className={styles.discount}>{discount.toFixed(2)}</p>
+               <p className={styles.counter_watch_people}>
+                  19 people purchased
+               </p>
+            </div>
          </div>
       </>
    );

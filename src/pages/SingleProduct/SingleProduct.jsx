@@ -1,19 +1,43 @@
+import { useParams } from 'react-router-dom';
+
+import { useSelector } from 'react-redux';
+
 import styles from '../SingleProduct/SingleProduct.module.css';
 
 const SingleProduct = () => {
+   const { id } = useParams();
+   const nameProduct = id;
+   const listProduct = useSelector(state => state.products.list);
+
+   const dataCurrentProduct = listProduct.filter(product => {
+      return product.title.toLowerCase().includes(nameProduct.toLowerCase());
+   });
+
+   console.log(dataCurrentProduct);
+
    return (
       <section>
-         <div>
-            <h3>Name Product</h3>
-            <p>price</p>
-            <p>rating</p>
-            <p>description</p>
-            <div>
-               <button type="button">Cart</button>
-               <button type="button">Like</button>
+         <div className={styles.wrapper_product_page}>
+            <div className={styles.title}>
+               <h3>{dataCurrentProduct[0].title}</h3>
+               <p className={styles.description}>
+                  {dataCurrentProduct[0].description}
+               </p>
+               <p className={styles.price}>{dataCurrentProduct[0].price}</p>
+
+               <div className={styles.wrapper_btn}>
+                  <button type="button">Cart</button>
+                  <button className={styles.btn_like} type="button">Like</button>
+               </div>
+            </div>
+            <div className={styles.wrapper_img}>
+               <img
+                  className={styles.img}
+                  src={dataCurrentProduct[0].image}
+                  alt=""
+               />
             </div>
          </div>
-         <img src="" alt="" srcset="" />
       </section>
    );
 };

@@ -1,0 +1,38 @@
+.wrapper_product_page {
+   display: flex;
+   flex-direction: row-reverse;
+}
+
+.title {
+   margin-top: 25px;
+   padding: 15px;
+   width: 600px;
+}
+
+.description {
+   margin-top: 25px;
+   text-align: justify;
+}
+
+.price {
+   margin-top: 25px;
+}
+
+.wrapper_img {
+   margin: 15px;
+   border-radius: 15px;
+   background-color: #fff;
+}
+
+.img {
+   width: 300px;
+   padding: 15px;
+}
+
+.wrapper_btn {
+   margin-top: 20px;
+}
+
+.btn_like {
+   margin-left: 10px;
+}
