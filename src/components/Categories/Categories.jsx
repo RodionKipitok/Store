@@ -1,6 +1,8 @@
-import CategoryCard from '../UI/CategoryCard/CategoryCard';
+// import { Link } from 'react-router-dom';
 
-import styles from '../Categories/Categories.module.css';
+import CategoryCard from '../UI/CategoryCard/CategoryCard';
+import styles from './Categories.module.css';
+
 const Categories = ({ products = [], title, amount }) => {
    const categoryImages = [
       'https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWxlY3Ryb25pY3N8ZW58MHx8MHx8fDA%3D',
@@ -18,7 +20,12 @@ const Categories = ({ products = [], title, amount }) => {
          <h2>{title}</h2>
          <div className={styles.Categories_list}>
             {transformCategories.map(category => (
-               <CategoryCard name={category.name} image={category.image} key={category.name} />
+          
+                  <CategoryCard
+                     name={category.name}
+                     image={category.image}
+                     key={category.name}
+                  />
             ))}
          </div>
       </section>

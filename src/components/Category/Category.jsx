@@ -6,8 +6,7 @@ import { getCategoryProducts } from '../../redex/productSlise';
 
 import Filter from '../UI/Filter/Filter';
 import ProductsCard from '../UI/ProducrtCard/ProductCard';
-
-import styles from '../Categories/Categories.module.css';
+import styles from '../Category/Category.module.css';
 
 const Category = () => {
    const { id } = useParams();
@@ -35,16 +34,16 @@ const Category = () => {
    });
 
    return (
-      <section className={styles.Category_wrapper}>
+      <section className={styles.category}>
          <h2 className={styles.products_title}>{id.toLocaleUpperCase()}</h2>
          <Filter />
 
-         <div className={styles.Category_list}>
+         <div className={styles.category_list}>
             {filterProduct.map(category => (
                <Link
+                  className={styles.category_link}
                   to={`/products/${category.title}`}
                   key={category.id}
-                  className={styles.Category_product}
                >
                   <ProductsCard data={category} />
                </Link>

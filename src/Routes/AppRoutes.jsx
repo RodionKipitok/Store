@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 
-import SingleCategory from '../components/SingleCategory/SingleCategory';
+import SingleCategory from '../components/Category/SingleCategory/SingleCategory';
 import SingleProduct from '../pages/SingleProduct/SingleProduct';
 
 import { ROUTES } from '../utils/routes';
