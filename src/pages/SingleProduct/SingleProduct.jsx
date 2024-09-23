@@ -13,7 +13,9 @@ const SingleProduct = () => {
       return product.title.toLowerCase().includes(nameProduct.toLowerCase());
    });
 
-   console.log(dataCurrentProduct);
+   const  addedProductCart = () => {
+      
+   }
 
    return (
       <section>
@@ -34,7 +36,7 @@ const SingleProduct = () => {
                <img
                   className={styles.img}
                   src={dataCurrentProduct[0].image}
-                  alt=""
+                  alt={dataCurrentProduct[0].title}
                />
             </div>
          </div>
