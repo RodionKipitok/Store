@@ -10,21 +10,24 @@ import LOGO from '../../images/logo.svg';
 
 const Header = () => {
    const [searchQuery, setSearchValue] = useState('');
-   const productsList = useSelector(state => state.products.list);
+   // const productsList = useSelector(state => state.products.list);
+   const totalGoodsInCart = useSelector(state => state.cart.list);
+
+   // console.log(totalGoodsInCart);
 
    const handleChange = e => {
       setSearchValue(e.target.value);
    };
 
-   const searchProduct = productsList.filter(product => {
-      const productMatch =
-         searchQuery.trim() === '' ||
-         product.title.toLowerCase().includes(searchQuery.toLowerCase());
+   // const searchProduct = productsList.filter(product => {
+   //    const productMatch =
+   //       searchQuery.trim() === '' ||
+   //       product.title.toLowerCase().includes(searchQuery.toLowerCase());
 
-      return productMatch;
-   });
+   //    return productMatch;
+   // });
 
-   console.log(searchProduct);
+   // console.log(searchProduct);
 
    return (
       <div className={styles.header}>
@@ -73,7 +76,7 @@ const Header = () => {
                <svg className={styles['icon-cart']}>
                   <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
                </svg>
-               <span className={styles.count}></span>
+               <span className={styles.count}>{totalGoodsInCart.length}</span>
             </Link>
          </div>
       </div>
