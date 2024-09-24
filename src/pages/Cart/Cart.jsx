@@ -1,10 +1,28 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { changeQuantity } from '../../redex/cartSlice';
 
 import styles from '../Cart/Cart.module.css';
 const Cart = () => {
-   const listProductCart = useSelector(state => state.cart.list);
+   const { list } = useSelector(state => state.cart);
+   const dispatch = useDispatch();
 
- 
+   // Функция для расчета общей стоимости
+
+   const calculateTotalPrice = items => {
+      return items.reduce(
+         (total, item) => total + item.price * item.quantity,
+         0,
+      );
+   };
+
+   // Функция для изменения количества товара
+   const handleQuantityChange = (productId, newQuantity) => {
+      // console.log(productId);
+      // console.log(newQuantity);
+
+      dispatch(changeQuantity({ productId, newQuantity }));
+   };
 
    return (
       <section className={styles.cart}>
@@ -14,17 +32,30 @@ const Cart = () => {
             <span>Count</span>
             <span>Cost</span>
          </div>
-         {listProductCart.map(product => (
+         {list.map(product => (
             <div className={styles.container_product_card}>
                <div className={styles.image_container}>
                   <img src={product.image} alt={product.title} />
                </div>
                <div className={styles.quantity_controls}>
-                  <button className={styles.plus_btn} type="button">
+                  <button
+                     onClick={() => {
+                        handleQuantityChange(product.id, product.quantity - 1);
+                     }}
+                     className={styles.plus_btn}
+                     type="button"
+                  >
                      -
                   </button>
-                  <span>1</span>
-                  <button type="button">+</button>
+                  <span>{product.quantity}</span>
+                  <button
+                     onClick={() => {
+                        handleQuantityChange(product.id, product.quantity + 1);
+                     }}
+                     type="button"
+                  >
+                     +
+                  </button>
                </div>
                <span className={styles.price}>{product.price}</span>
             </div>
@@ -32,6 +63,7 @@ const Cart = () => {
          <div className={styles.cart_summary}>
             <span>count product</span>
             <span>count price</span>
+            <span>{calculateTotalPrice(list)}</span>
          </div>
       </section>
    );

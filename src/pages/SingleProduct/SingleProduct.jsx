@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addedProductInCart } from '../../redex/cartSlice';
+import { addToCart } from '../../redex/cartSlice';
 
 import styles from '../SingleProduct/SingleProduct.module.css';
 
@@ -17,7 +17,7 @@ const SingleProduct = () => {
    
 
    const addedProductCart = () => {
-      dispatch(addedProductInCart(dataCurrentProduct[0]));
+      dispatch(addToCart(dataCurrentProduct[0]));
    };
 
    return (
