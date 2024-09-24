@@ -5,11 +5,6 @@ const Cart = () => {
    const listProductCart = useSelector(state => state.cart.list);
 
  
-    const totalPrice =  () => {
-
-      
-
-    };
 
    return (
       <section className={styles.cart}>
