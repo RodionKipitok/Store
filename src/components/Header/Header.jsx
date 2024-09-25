@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux';
 
 import { ROUTES } from '../../utils/routes';
 import styles from '../Header/Header.module.css';
-
-import AVATAR from '../../images/avatar.jpg';
 import LOGO from '../../images/logo.svg';
 
 const Header = () => {
