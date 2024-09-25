@@ -1,27 +1,37 @@
 import { useSelector, useDispatch } from 'react-redux';
-
-import { changeQuantity } from '../../redex/cartSlice';
+import { changeQuantity, removeFromCart } from '../../redex/cartSlice';
+import { useState, useEffect } from 'react';
 
 import styles from '../Cart/Cart.module.css';
+
 const Cart = () => {
    const { list } = useSelector(state => state.cart);
+
+   const [total, setTotal] = useState({
+      count: list.reduce((prev, curr) => prev + curr.quantity, 0),
+      price: list.reduce((prev, curr) => prev + curr.price * curr.quantity, 0),
+   });
+
    const dispatch = useDispatch();
+   console.log(list);
 
-   // Функция для расчета общей стоимости
-
-   const calculateTotalPrice = items => {
-      return items.reduce(
-         (total, item) => total + item.price * item.quantity,
-         0,
-      );
-   };
+   useEffect(() => {
+      setTotal({
+         count: list.reduce((prev, curr) => prev + curr.quantity, 0),
+         price: list.reduce(
+            (prev, curr) => prev + curr.price * curr.quantity,
+            0,
+         ),
+      });
+   }, [list]);
 
    // Функция для изменения количества товара
    const handleQuantityChange = (productId, newQuantity) => {
-      // console.log(productId);
-      // console.log(newQuantity);
-
       dispatch(changeQuantity({ productId, newQuantity }));
+   };
+
+   const handleRemove = productId => {
+      dispatch(removeFromCart({ productId }));
    };
 
    return (
@@ -58,37 +68,23 @@ const Cart = () => {
                   </button>
                </div>
                <span className={styles.price}>{product.price}</span>
+               <button
+                  onClick={() => {
+                     handleRemove(product.id);
+                  }}
+                  className={styles.btn_delete}
+                  type="button"
+               >
+                  delete
+               </button>
             </div>
          ))}
          <div className={styles.cart_summary}>
-            <span>count product</span>
-            <span>count price</span>
-            <span>{calculateTotalPrice(list)}</span>
+            <span className={styles.count_product}>{total.count}</span>
+            <span className={styles.count_price}>{total.price}</span>
          </div>
       </section>
    );
 };
 
 export default Cart;
-
-// category
-// :
-// "men's clothing"
-// description
-// :
-// "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-// id
-// :
-// 1
-// image
-// :
-// "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-// price
-// :
-// 109.95
-// rating
-// :
-// {rate: 3.9, count: 120}
-// title
-// :
-// "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"

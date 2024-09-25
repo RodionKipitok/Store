@@ -37,13 +37,6 @@ const Header = () => {
             </Link>
          </div>
 
-         <div className={styles.info}>
-            <div className={styles.avatar}>
-               <img src={AVATAR} alt="avatar" />
-            </div>
-            <div className={styles.username}>Anstoli MKSwkdsdgf</div>
-         </div>
-
          <form className={styles.form}>
             <div>
                <svg className={styles.icon}>

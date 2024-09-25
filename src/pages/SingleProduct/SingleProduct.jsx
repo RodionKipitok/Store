@@ -14,11 +14,12 @@ const SingleProduct = () => {
    const dataCurrentProduct = listProduct.filter(product => {
       return product.title.toLowerCase().includes(nameProduct.toLowerCase());
    });
-   
 
    const addedProductCart = () => {
       dispatch(addToCart(dataCurrentProduct[0]));
    };
+
+   console.log(dataCurrentProduct);
 
    return (
       <section>
