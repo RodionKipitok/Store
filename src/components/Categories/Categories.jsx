@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+
 
 import CategoryCard from '../UI/CategoryCard/CategoryCard';
 import styles from './Categories.module.css';

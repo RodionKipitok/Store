@@ -8,7 +8,7 @@ import LOGO from '../../images/logo.svg';
 
 const Header = () => {
    const [searchQuery, setSearchValue] = useState('');
-   // const productsList = useSelector(state => state.products.list);
+   const productsList = useSelector(state => state.products.list);
    const totalGoodsInCart = useSelector(state => state.cart.list);
 
    // console.log(totalGoodsInCart);
@@ -17,15 +17,15 @@ const Header = () => {
       setSearchValue(e.target.value);
    };
 
-   // const searchProduct = productsList.filter(product => {
-   //    const productMatch =
-   //       searchQuery.trim() === '' ||
-   //       product.title.toLowerCase().includes(searchQuery.toLowerCase());
+   const searchProduct = productsList.filter(product => {
+      const productMatch =
+         searchQuery.trim() === '' ||
+         product.title.toLowerCase().includes(searchQuery.toLowerCase());
 
-   //    return productMatch;
-   // });
+      return productMatch;
+   });
 
-   // console.log(searchProduct);
+   console.log(searchProduct);
 
    return (
       <div className={styles.header}>
@@ -35,25 +35,47 @@ const Header = () => {
             </Link>
          </div>
 
-         <form className={styles.form}>
-            <div>
-               <svg className={styles.icon}>
-                  <use
-                     xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`}
+         <div>
+            <form className={styles.form}>
+               <div>
+                  <svg className={styles.icon}>
+                     <use
+                        xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`}
+                     />
+                  </svg>
+               </div>
+               <div>
+                  <input
+                     value={searchQuery}
+                     type="search"
+                     name="search"
+                     placeholder="Search for anything.."
+                     autoComplete="off"
+                     onChange={handleChange}
                   />
-               </svg>
+               </div>
+            </form>
+            <div
+               className={`${styles.list_result_search} ${
+                  searchQuery.trim() === ''
+                     ? styles.list_result_search_Hidden
+                     : ''
+               }`}
+            >
+               {searchProduct.map(item => (
+                  <Link
+                     key={item.id}
+                     to={`/products/${item.title}`}
+                     className={styles.item_list_result_search}
+                     onClick={() => {
+                        setSearchValue('');
+                     }}
+                  >
+                     {item.title}
+                  </Link>
+               ))}
             </div>
-            <div>
-               <input
-                  value={searchQuery}
-                  type="search"
-                  name="search"
-                  placeholder="Search for anything.."
-                  autoComplete="off"
-                  onChange={handleChange}
-               />
-            </div>
-         </form>
+         </div>
 
          <div className={styles.account}>
             <Link>
