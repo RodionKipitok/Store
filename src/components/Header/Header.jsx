@@ -1,31 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import { ROUTES } from '../../utils/routes';
+import Search from '../Search/Search';
 import styles from '../Header/Header.module.css';
 import LOGO from '../../images/logo.svg';
 
 const Header = () => {
-   const [searchQuery, setSearchValue] = useState('');
-   const productsList = useSelector(state => state.products.list);
    const totalGoodsInCart = useSelector(state => state.cart.list);
 
    // console.log(totalGoodsInCart);
-
-   const handleChange = e => {
-      setSearchValue(e.target.value);
-   };
-
-   const searchProduct = productsList.filter(product => {
-      const productMatch =
-         searchQuery.trim() === '' ||
-         product.title.toLowerCase().includes(searchQuery.toLowerCase());
-
-      return productMatch;
-   });
-
-   console.log(searchProduct);
 
    return (
       <div className={styles.header}>
@@ -35,48 +18,7 @@ const Header = () => {
             </Link>
          </div>
 
-         <div>
-            <form className={styles.form}>
-               <div>
-                  <svg className={styles.icon}>
-                     <use
-                        xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`}
-                     />
-                  </svg>
-               </div>
-               <div>
-                  <input
-                     value={searchQuery}
-                     type="search"
-                     name="search"
-                     placeholder="Search for anything.."
-                     autoComplete="off"
-                     onChange={handleChange}
-                  />
-               </div>
-            </form>
-            <div
-               className={`${styles.list_result_search} ${
-                  searchQuery.trim() === ''
-                     ? styles.list_result_search_Hidden
-                     : ''
-               }`}
-            >
-               {searchProduct.map(item => (
-                  <Link
-                     key={item.id}
-                     to={`/products/${item.title}`}
-                     className={styles.item_list_result_search}
-                     onClick={() => {
-                        setSearchValue('');
-                     }}
-                  >
-                     {item.title}
-                  </Link>
-               ))}
-            </div>
-         </div>
-
+         <Search />
          <div className={styles.account}>
             <Link>
                <svg className={styles['icon-fav']}>
