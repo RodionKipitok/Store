@@ -32,6 +32,8 @@ const router = createBrowserRouter([
          },
       ],
    },
-]);
+],{
+   basename: '/Store'
+});
 
 export default router;
