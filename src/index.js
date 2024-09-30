@@ -9,6 +9,6 @@ import { store } from './redex/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <Provider store={store}>
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider basename="/Store" router={router}></RouterProvider>
    </Provider>,
 );
