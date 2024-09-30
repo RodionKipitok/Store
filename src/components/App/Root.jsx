@@ -1,5 +1,5 @@
+import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
-import AppRoutes from '../../Routes/AppRoutes';
 import Sidebar from '../Sidebar/Sidebar';
 
 import Footer from '../Footer/Footer';
@@ -7,9 +7,9 @@ import { getCategories } from '../../redex/categoriesSlice';
 import { getProduct } from '../../redex/productSlise';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import './App.css';
+import './Root.css';
 
-function App() {
+function Root() {
    const dispatch = useDispatch();
 
    useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
          <Header />
          <div className="container">
             <Sidebar />
-            <AppRoutes />
+            <Outlet />
          </div>
 
          <Footer />
@@ -30,4 +30,4 @@ function App() {
    );
 }
 
-export default App;
+export default Root;

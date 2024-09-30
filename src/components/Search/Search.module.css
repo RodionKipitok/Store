@@ -54,6 +54,17 @@
    line-height: 18px;
 }
 
+.link_search_result {
+   font-size: 14px;
+   color: #576067;
+   text-transform: capitalize;
+   transition: all 0.3s ease;
+}
+
+.link_search_result:hover {
+   color: var(--violet);
+}
+
 .icon {
    width: 16px;
    height: 16px;
