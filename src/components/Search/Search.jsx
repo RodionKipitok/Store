@@ -18,8 +18,6 @@ const Search = () => {
       return productMatch;
    });
 
-   console.log(searchProduct.length);
-
    return (
       <div>
          <form className={styles.form}>

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redex/cartSlice';
+import { likeProduct } from '../../redex/productSlise';
 
 import styles from '../SingleProduct/SingleProduct.module.css';
 
@@ -19,7 +20,9 @@ const SingleProduct = () => {
       dispatch(addToCart(dataCurrentProduct[0]));
    };
 
-   console.log(dataCurrentProduct);
+   const addedStateLikeProduct = () => {
+      dispatch(likeProduct(dataCurrentProduct[0]));
+   };
 
    return (
       <section>
@@ -35,7 +38,11 @@ const SingleProduct = () => {
                   <button type="button" onClick={addedProductCart}>
                      Cart
                   </button>
-                  <button className={styles.btn_like} type="button">
+                  <button
+                     className={styles.btn_like}
+                     type="button"
+                     onClick={addedStateLikeProduct}
+                  >
                      Like
                   </button>
                </div>

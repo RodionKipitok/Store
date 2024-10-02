@@ -38,6 +38,7 @@ const productsSlice = createSlice({
       filtered: [],
       related: [],
       isLoading: false,
+      like: [],
       filter: {
          title: '',
          price_min: '',
@@ -51,6 +52,10 @@ const productsSlice = createSlice({
 
       filterValueCategory: (state, { payload }) => {
          state.filter = payload;
+      },
+      likeProduct: (state, action) => {
+         console.log(action);
+         state.like.push(action.payload);
       },
    },
    extraReducers: builder => {
@@ -77,6 +82,7 @@ const productsSlice = createSlice({
    },
 });
 
-export const { filterByPrice, filterValueCategory } = productsSlice.actions;
+export const { filterByPrice, filterValueCategory, likeProduct } =
+   productsSlice.actions;
 
 export default productsSlice.reducer;

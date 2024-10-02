@@ -7,6 +7,7 @@ import LOGO from '../../images/logo.svg';
 
 const Header = () => {
    const totalGoodsInCart = useSelector(state => state.cart.list);
+   const like = useSelector(state => state.products.like);
 
    // console.log(totalGoodsInCart);
 
@@ -20,12 +21,13 @@ const Header = () => {
 
          <Search />
          <div className={styles.account}>
-            <Link>
+            <Link to="/like">
                <svg className={styles['icon-fav']}>
                   <use
                      xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`}
                   />
                </svg>
+               <span>{like.length}</span>
             </Link>
             <Link to="/cart">
                <svg className={styles['icon-cart']}>

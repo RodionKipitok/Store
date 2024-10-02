@@ -5,35 +5,43 @@ import Home from '../pages/Home/Home';
 import SingleCategory from '../components/Category/SingleCategory/SingleCategory';
 import SingleProduct from '../pages/SingleProduct/SingleProduct';
 import Cart from '../pages/Cart/Cart';
+import Like from '../pages/Like/Like';
 import ErrorPage from '../pages/Erro-page/error-page';
 
 import { ROUTES } from '../utils/routes';
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+   [
+      {
+         path: '/',
+         element: <Root />,
+         errorElement: <ErrorPage />,
+         children: [
+            {
+               path: ROUTES.HOME,
+               element: <Home />,
+            },
+            {
+               path: ROUTES.PRODUCT,
+               element: <SingleProduct />,
+            },
+            {
+               path: ROUTES.CATEGORY,
+               element: <SingleCategory />,
+            },
+            {
+               path: ROUTES.CART,
+               element: <Cart />,
+            },
+            {
+               path: ROUTES.LIKE,
+               element: <Like />,
+            },
+         ],
+      },
+   ],
    {
-      path: '/',
-      element: <Root />,
-      errorElement: <ErrorPage />,
-      children: [
-         {
-            path: ROUTES.HOME,
-            element: <Home />,
-         },
-         {
-            path: ROUTES.PRODUCT,
-            element: <SingleProduct />,
-         },
-         {
-            path: ROUTES.CATEGORY,
-            element: <SingleCategory />,
-         },
-         {
-            path: ROUTES.CART,
-            element: <Cart />,
-         },
-      ],
+      basename: '/Store',
    },
-],{
-   basename: '/Store'
-});
+);
 
 export default router;
