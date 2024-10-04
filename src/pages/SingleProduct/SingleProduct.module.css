@@ -1,6 +1,7 @@
 .wrapper_product_page {
    display: flex;
    flex-direction: row-reverse;
+   height: 100vh;
 }
 
 .title {
@@ -22,6 +23,8 @@
    margin: 15px;
    border-radius: 15px;
    background-color: #fff;
+   height: 450px;
+   overflow: hidden;
 }
 
 .img {
